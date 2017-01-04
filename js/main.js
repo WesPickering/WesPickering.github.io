@@ -5,12 +5,13 @@ function preload() {
 }
 
 function create() {
+  game.stage.backgroundColor = "#4488AA";
   players = game.add.group();
-  createPlayer();
+  createPlayer(0, 0);
 }
 
-function createPlayer() {
-  var player = players.create(0, 0, 'tux');
+function createPlayer(x, y ) {
+  var player = players.create(x, y, 'tux');
 }
 
 function update() {
