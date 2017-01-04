@@ -6,12 +6,18 @@ function preload() {
 
 function create() {
   game.stage.backgroundColor = "#4488AA";
+  game.physics.startSystem(Phaser.Physics.ARCADE);
   players = game.add.group();
-  createPlayer(0, 0);
+  players.enableBody = true;
+
+  createPlayer(10, 10);
 }
 
 function createPlayer(x, y ) {
   var player = players.create(x, y, 'tux');
+  player.body.bounce.y = 0.2;
+  player.body.gravity.y = 300;
+  player.body.collideWorldBounds =  true;
 }
 
 function update() {
