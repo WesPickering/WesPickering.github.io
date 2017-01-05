@@ -24,6 +24,7 @@ function createPlayer(x, y ) {
 }
 
 function update() {
+  game.physics.arcade.collide(players, players);
   players.forEach(function(p){
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
