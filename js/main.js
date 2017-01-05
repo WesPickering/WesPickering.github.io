@@ -1,4 +1,5 @@
 var game = new Phaser.Game(1080, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var cursors;
 
 function preload() {
   game.load.image('tux', 'res/tux.png');
@@ -9,6 +10,8 @@ function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
   players = game.add.group();
   players.enableBody = true;
+  
+  cursors = game.input.keyboard.createCursorKeys();
 
   createPlayer(10, 10);
 }
@@ -21,4 +24,13 @@ function createPlayer(x, y ) {
 }
 
 function update() {
+  players.forEach(function(p){
+    p.body.velocity.x = 0;
+    if(cursors.left.isDown) {
+      p.body.velocity.x = -150;
+    }
+    else if(cursors.right.isDown) {
+      p.body.velocity.x = 150; 
+    }
+  });
 }
