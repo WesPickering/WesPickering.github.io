@@ -1,4 +1,4 @@
-var game = new Phaser.Game(720, 660, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1080, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var cursors;
 
 function preload() {
@@ -20,6 +20,7 @@ function create() {
 
   //floor
   platforms = game.add.group();
+  platforms.enableBody = true;
   createPlatform();
 }
 
