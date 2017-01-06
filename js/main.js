@@ -33,7 +33,7 @@ function createPlayer(x, y) {
 
 function createPlatform() {
   for(var i = 0; i < game.world.width; i += 64) {
-    var ground = platforms.create(i, game.world.height, 'brick');
+    var ground = platforms.create(i, game.world.height - 64, 'brick');
     ground.body.immovable = true;
   }
 }
@@ -41,7 +41,6 @@ function createPlatform() {
 function update() {
   game.physics.arcade.collide(players, players);
   game.physics.arcade.collide(players, platforms);
-  game.physics.arcade
   players.forEach(function(p){
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
