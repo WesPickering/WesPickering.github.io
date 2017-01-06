@@ -44,7 +44,7 @@ function createPlatform() {
 
 function createBricks() {
   for(var i = 0; i < 3; i+= 1){
-    var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64);
+    var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64, 'brick');
     brick.body.gravity.x = -100;
     brick.body.immovable = true;
   }
