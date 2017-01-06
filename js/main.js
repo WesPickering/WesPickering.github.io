@@ -45,9 +45,13 @@ function update() {
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
       p.body.velocity.x = -150;
-    }
-    else if(cursors.right.isDown) {
+    } else if(cursors.right.isDown) {
       p.body.velocity.x = 150;
+    }
+
+    //jump controls
+    if(cursors.up.isDown && p.body.touching.down) {
+      p.body.velocity = -200
     }
   });
 }
