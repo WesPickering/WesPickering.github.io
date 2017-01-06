@@ -51,7 +51,7 @@ function update() {
 
     //jump controls
     if(cursors.up.isDown && p.body.touching.down) {
-      p.body.velocity = -200
+      p.body.velocity.y = -200;
     }
   });
 }
