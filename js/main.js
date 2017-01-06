@@ -13,7 +13,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10);
+  createPlayer(10, 10, 500);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -22,13 +22,17 @@ function create() {
   platforms = game.add.group();
   platforms.enableBody = true;
   createPlatform();
+
+  bricks = game.add.group();
+  bricks.enableBody = true;
+  createBricks();
 }
 
-function createPlayer(x, y) {
+function createPlayer(x, y, speed) {
   var player = players.create(x, y, 'tux');
-  player.body.bounce.y = 0.2;
   player.body.gravity.y = 300;
   player.body.collideWorldBounds =  true;
+  player.speed = speed;
 }
 
 function createPlatform() {
@@ -38,15 +42,24 @@ function createPlatform() {
   }
 }
 
+function createBricks() {
+  for(var i = 0; i < 3; i+= 1){
+    var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64);
+    brick.body.gravity.x = -100;
+    brick.body.immovable = true;
+  }
+}
+
 function update() {
   game.physics.arcade.collide(players, players);
   game.physics.arcade.collide(players, platforms);
+  game.physics.arcade.collide(players, bricks);
   players.forEach(function(p){
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
-      p.body.velocity.x = -150;
+      p.body.velocity.x = -p.speed;
     } else if(cursors.right.isDown) {
-      p.body.velocity.x = 150;
+      p.body.velocity.x = p.speed;
     }
 
     //jump controls
