@@ -4,6 +4,7 @@ var cursors;
 function preload() {
   game.load.image('tux', 'res/tux.png');
   game.load.image('brick', 'res/brick.png');
+  game.load.image('brick2', 'res/brick.png');
 }
 
 function create() {
@@ -45,7 +46,7 @@ function createPlatform() {
 
 function createBricks() {
   for(var i = 0; i < 3; i+= 1){
-    var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64, 'brick');
+    var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64, 'brick2');
     brick.body.gravity.x = -100;
     brick.body.immovable = true;
   }
