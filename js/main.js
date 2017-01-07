@@ -1,5 +1,6 @@
 var game = new Phaser.Game(1080, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var cursors;
+var time = 0;
 
 function preload() {
   game.load.image('tux', 'res/tux.png');
@@ -14,7 +15,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 500, 500);
+  createPlayer(10, 10, 50, 200);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -67,6 +68,14 @@ function update() {
     //jump controls
     if(cursors.up.isDown && p.body.touching.down) {
       p.body.velocity.y = -p.jump;
+    }
+
+    //generate bricks at intervals
+    if (time == 100){
+      createBricks();
+      time = 0;
+    } else {
+    time += 1;
     }
   });
 }
