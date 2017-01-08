@@ -6,7 +6,7 @@ function preload() {
   game.load.image('tux', 'res/tux.png');
   game.load.image('brick', 'res/brick.png');
   game.load.image('brick2', 'res/brick.png');
-  game.load.image('flag', 'res/flag image.png');
+  game.load.image('flag', 'res/flag.png');
 }
 
 function create() {
@@ -16,7 +16,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 200, 250);
+  createPlayer(10, 10, 200, 350);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
