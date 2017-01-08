@@ -62,7 +62,7 @@ function randomBrick() {
     var randBrick = bricks.create(0, rand, 'brick');
     randBrick.body.velocity.x = 150;
   } else {
-    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    var randBrick = bricks.create(game.world.width - 128, rand, 'brick');
     randBrick.body.velocity.x = -150;
   }
   randBrick.body.immovable = true;
