@@ -47,7 +47,7 @@ function createBrickGoal() {
 
 function createPlayer(x, y, speed, jump) {
   var player = players.create(x, y, 'tux');
-  player.body.gravity.y = 300;
+  player.body.gravity.y = 500;
   player.body.collideWorldBounds =  true;
   player.speed = speed;
   player.jump = jump;
