@@ -112,16 +112,15 @@ function update() {
     }
 
     //generate bricks at intervals
-    if (time % 200 == 0){
-      randomBrickBot();
-      randomBrickMid();
+    if (time % 400 == 0){
       randomBrickTop();
       time = 0;
-    } else if (time % 100 == 0){
+    }
+    if (time % 200 == 0){
       randomBrickMid();
-      randomBrickBot();
       time += 1;
-    } else if (time % 50 == 0){
+    }
+    if (time % 100 == 0){
       randomBrickBot();
       time += 1;
     } else {
