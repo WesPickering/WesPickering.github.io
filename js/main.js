@@ -15,7 +15,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 200, 150);
+  createPlayer(10, 10, 200, 250);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
