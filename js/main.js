@@ -56,10 +56,10 @@ function randomBrickBot() {
   var rand = Math.random() * ((game.world.height - 278) / 3);
   var rng = Math.random();
   if (rng > .5) {
-    var randBrick = bricks.create(0, rand, 'brick');
+    var randBrick = bricks.create(0, 2 * ((game.world.height - 278) / 3) + 150 + rand, 'brick');
     randBrick.body.velocity.x = 150;
   } else {
-    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    var randBrick = bricks.create(game.world.width - 64, 2 * ((game.world.height - 278) / 3) + 150 + rand, 'brick');
     randBrick.body.velocity.x = -150;
   }
   randBrick.body.immovable = true;
@@ -70,10 +70,10 @@ function randomBrickMid() {
   var rand = Math.random() * ((game.world.height - 278) / 3);
   var rng = Math.random();
   if (rng > .5) {
-    var randBrick = bricks.create(0, rand, 'brick');
+    var randBrick = bricks.create(0, ((game.world.height - 278) / 3) + 150 + rand, 'brick');
     randBrick.body.velocity.x = 150;
   } else {
-    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    var randBrick = bricks.create(game.world.width - 64, ((game.world.height - 278) / 3) + 150 + rand, 'brick');
     randBrick.body.velocity.x = -150;
   }
   randBrick.body.immovable = true;
@@ -85,10 +85,10 @@ function randomBrickTop() {
   var rand = Math.random() * ((game.world.height - 278) / 3);
   var rng = Math.random();
   if (rng > .5) {
-    var randBrick = bricks.create(0, rand, 'brick');
+    var randBrick = bricks.create(0, 150 + rand, 'brick');
     randBrick.body.velocity.x = 150;
   } else {
-    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    var randBrick = bricks.create(game.world.width - 64, 150 + rand, 'brick');
     randBrick.body.velocity.x = -150;
   }
   randBrick.body.immovable = true;
