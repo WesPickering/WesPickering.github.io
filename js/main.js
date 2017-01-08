@@ -15,7 +15,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 100, 300);
+  createPlayer(10, 10, 200, 150);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -27,7 +27,12 @@ function create() {
 
   bricks = game.add.group();
   bricks.enableBody = true;
-  // createBricks();
+  createBrickGoal();
+}
+
+function createBrickGoal() {
+  var goal = bricks.create(game.world.width - 64, 150, 'brick');
+  goal.body.immovable = true;
 }
 
 function createPlayer(x, y, speed, jump) {
@@ -47,16 +52,37 @@ function createPlatform() {
   ground.body.immovable = true;
 }
 
-// function createBricks() {
-//   for(var i = 0; i < 3; i+= 1){
-//     var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64, 'brick2');
-//     brick.body.velocity.x = -100;
-//     brick.body.immovable = true;
-//   }
-// }
+function randomBrickBot() {
+  var rand = Math.random() * ((game.world.height - 278) / 3);
+  var rng = Math.random();
+  if (rng > .5) {
+    var randBrick = bricks.create(0, rand, 'brick');
+    randBrick.body.velocity.x = 150;
+  } else {
+    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    randBrick.body.velocity.x = -150;
+  }
+  randBrick.body.immovable = true;
 
-function randomBrick() {
-  var rand = Math.random() * (game.world.height - 128);
+}
+
+function randomBrickMid() {
+  var rand = Math.random() * ((game.world.height - 278) / 3);
+  var rng = Math.random();
+  if (rng > .5) {
+    var randBrick = bricks.create(0, rand, 'brick');
+    randBrick.body.velocity.x = 150;
+  } else {
+    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    randBrick.body.velocity.x = -150;
+  }
+  randBrick.body.immovable = true;
+}
+
+total heigh for bricks = height - 128 - 150
+
+function randomBrickTop() {
+  var rand = Math.random() * ((game.world.height - 278) / 3);
   var rng = Math.random();
   if (rng > .5) {
     var randBrick = bricks.create(0, rand, 'brick');
@@ -87,11 +113,20 @@ function update() {
     }
 
     //generate bricks at intervals
-    if (time == 100){
-      randomBrick();
+    if (time % 200 == 0){
+      randomBrickBot();
+      randomBrickMid();
+      randomBrickTop();
       time = 0;
+    } else if (time % 100 == 0){
+      randomBrickMid();
+      randomBrickBot();
+      time += 1;
+    } else if (time % 50 == 0){
+      randomBrickBot();
+      time += 1;
     } else {
-    time += 1;
+      time += 1;
     }
   });
 }
