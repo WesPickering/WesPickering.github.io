@@ -36,7 +36,7 @@ function create() {
 }
 
 function createFlag() {
-  var flag = flags.create(game.world.width - 64, 30, 'flag');
+  var flag = flags.create(game.world.width - 64, 150 - 64, 'flag');
   flag.body.immovable = true;
 }
 
