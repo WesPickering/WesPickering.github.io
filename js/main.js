@@ -6,6 +6,7 @@ function preload() {
   game.load.image('tux', 'res/tux.png');
   game.load.image('brick', 'res/brick.png');
   game.load.image('brick2', 'res/brick.png');
+  game.load.image('flag', 'res/flag image.png');
 }
 
 function create() {
@@ -28,6 +29,15 @@ function create() {
   bricks = game.add.group();
   bricks.enableBody = true;
   createBrickGoal();
+
+  flags = game.add.group();
+  flags.enableBody = true;
+  createFlag()
+}
+
+function createFlag() {
+  var flag = flags.create(game.world.width - 64, 30, 'flag');
+  flag.body.immovable = true;
 }
 
 function createBrickGoal() {
