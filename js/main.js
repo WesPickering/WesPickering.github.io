@@ -27,7 +27,7 @@ function create() {
 
   bricks = game.add.group();
   bricks.enableBody = true;
-  createBricks();
+  // createBricks();
 }
 
 function createPlayer(x, y, speed, jump) {
@@ -56,13 +56,13 @@ function createPlatform() {
 // }
 
 function randomBrick() {
-  var rand = Math.random() * (game.world.height - 64);
+  var rand = Math.random() * (game.world.height - 128);
   var rng = Math.random();
   if (rng > .5) {
     var randBrick = bricks.create(0, rand, 'brick');
     randBrick.body.velocity.x = 150;
   } else {
-    var randBrick = bricks.create(game.world.width - 128, rand, 'brick');
+    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
     randBrick.body.velocity.x = -150;
   }
   randBrick.body.immovable = true;
