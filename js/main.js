@@ -79,7 +79,6 @@ function randomBrickMid() {
   randBrick.body.immovable = true;
 }
 
-total heigh for bricks = height - 128 - 150
 
 function randomBrickTop() {
   var rand = Math.random() * ((game.world.height - 278) / 3);
