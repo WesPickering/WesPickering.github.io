@@ -15,7 +15,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 50, 200);
+  createPlayer(10, 10, 100, 200);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -43,14 +43,30 @@ function createPlatform() {
     var ground = platforms.create(i, game.world.height - 64, 'brick');
     ground.body.immovable = true;
   }
+  var ground = platforms.create(game.world.width - 64);
+  ground.body.immovable = true;
 }
 
 function createBricks() {
   for(var i = 0; i < 3; i+= 1){
     var brick = bricks.create(game.world.width - 64, game.world.height - 64 - i*64, 'brick2');
-    brick.body.gravity.x = -100;
+    brick.body.velocity.x = -100;
     brick.body.immovable = true;
   }
+}
+
+function randomBrick() {
+  var rand = Math.random() * (game.world.height - 64);
+  var rng = Math.random();
+  if (rng > .5) {
+    var randBrick = bricks.create(0, rand, 'brick');
+    randBrick.body.velocity = 150;
+  } else {
+    var randBrick = bricks.create(game.world.width - 64, rand, 'brick');
+    randBrick.body.velocity = -150;
+  }
+  randBrick.body.immovable = true;
+
 }
 
 function update() {
@@ -72,7 +88,7 @@ function update() {
 
     //generate bricks at intervals
     if (time == 100){
-      createBricks();
+      randomBrick();
       time = 0;
     } else {
     time += 1;
