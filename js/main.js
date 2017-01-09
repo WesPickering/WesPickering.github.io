@@ -110,10 +110,6 @@ function update() {
   game.physics.arcade.collide(players, platforms);
   game.physics.arcade.collide(players, bricks);
   players.forEach(function(p){
-    if p.body.istouching(flags) {
-      alert("game over nerd!")
-      document.location.reload();
-    }
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
       p.body.velocity.x = -p.speed;
