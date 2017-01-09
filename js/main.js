@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1080, 1080, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1080, 960, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var cursors;
 var time = 0;
 
@@ -17,7 +17,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(game.world.height - 124, 10, 300, 500);
+  createPlayer(10, game.world.height - 124, 200, 400);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
