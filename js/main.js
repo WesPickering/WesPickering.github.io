@@ -16,7 +16,7 @@ function create() {
   //players
   players = game.add.group();
   players.enableBody = true;
-  createPlayer(10, 10, 300, 500);
+  createPlayer(game.world.height - 124, 10, 300, 500);
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -122,15 +122,15 @@ function update() {
     }
 
     //generate bricks at intervals
-    if (time % 400 == 0){
+    if (time % 300 == 0){
       randomBrickTop();
       time = 0;
     }
-    if (time % 200 == 0){
+    if (time % 100 == 0){
       randomBrickMid();
       time += 1;
     }
-    if (time % 100 == 0){
+    if (time % 50 == 0){
       randomBrickBot();
       time += 1;
     } else {
