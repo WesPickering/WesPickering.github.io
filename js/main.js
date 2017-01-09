@@ -4,6 +4,7 @@ var time = 0;
 
 function preload() {
   game.load.image('tux', 'res/tux.png');
+  game.load.image('hilfy', 'res/hilfinger.png');
   game.load.image('brick', 'res/brick.png');
   game.load.image('brick2', 'res/brick.png');
   game.load.image('flag', 'res/flag.png');
@@ -46,7 +47,7 @@ function createBrickGoal() {
 }
 
 function createPlayer(x, y, speed, jump) {
-  var player = players.create(x, y, 'tux');
+  var player = players.create(x, y, 'hilfy');
   player.body.gravity.y = 500;
   player.body.collideWorldBounds =  true;
   player.speed = speed;
