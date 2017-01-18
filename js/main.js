@@ -1,10 +1,9 @@
-var game = new Phaser.Game(1080, 960, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(1080, 860, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var cursors;
 var time = 0;
 
 function preload() {
   game.load.image('tux', 'res/tux.png');
-  game.load.image('hilfy', 'res/hilfinger.png');
   game.load.image('brick', 'res/brick.png');
   game.load.image('brick2', 'res/brick.png');
   game.load.image('flag', 'res/flag.png');
@@ -47,7 +46,7 @@ function createBrickGoal() {
 }
 
 function createPlayer(x, y, speed, jump) {
-  var player = players.create(x, y, 'hilfy');
+  var player = players.create(x, y, 'brick');
   player.body.gravity.y = 500;
   player.body.collideWorldBounds =  true;
   player.speed = speed;
@@ -127,11 +126,11 @@ function update() {
       randomBrickTop();
       time = 0;
     }
-    if (time % 100 == 0){
+    if (time % 90 == 0){
       randomBrickMid();
       time += 1;
     }
-    if (time % 50 == 0){
+    if (time % 40 == 0){
       randomBrickBot();
       time += 1;
     } else {
