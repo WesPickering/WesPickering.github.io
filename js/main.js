@@ -109,6 +109,9 @@ function update() {
   game.physics.arcade.collide(players, platforms);
   game.physics.arcade.collide(players, bricks);
   players.forEach(function(p){
+    if (overlap(p, flags)) {
+      alert("You win!!!");
+    }
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
       p.body.velocity.x = -p.speed;
@@ -128,13 +131,10 @@ function update() {
     }
     if (time % 90 == 0){
       randomBrickMid();
-      time += 1;
     }
     if (time % 40 == 0){
       randomBrickBot();
-      time += 1;
-    } else {
-      time += 1;
     }
+    time += 1;
   });
 }
