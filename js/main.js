@@ -109,7 +109,7 @@ function update() {
   game.physics.arcade.collide(players, platforms);
   game.physics.arcade.collide(players, bricks);
   players.forEach(function(p){
-    if (overlap(p, flags)) {
+    if (game.physics.arcade.overlap(p, flags)) {
       alert("You win!!!");
     }
     p.body.velocity.x = 0;
