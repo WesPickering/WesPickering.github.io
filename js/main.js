@@ -111,6 +111,7 @@ function update() {
   players.forEach(function(p){
     if (game.physics.arcade.overlap(p, flags)) {
       alert("You win!!!");
+      reset();
     }
     p.body.velocity.x = 0;
     if(cursors.left.isDown) {
