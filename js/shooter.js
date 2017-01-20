@@ -58,6 +58,10 @@ function shoot(x, y, x_speed, y_speed) {
 
 function update() {
     game.physics.arcade.collide(player1, player2);
+    var reload2 = 0;
+    var reload1 = 0;
+
+
 
     //Player 2 Controls
     player2.forEach(function(p2){
@@ -69,7 +73,6 @@ function update() {
 
       p2.body.velocity.x = 0;
       p2.body.velocity.y = 0;
-      var reload1 = 0;
       if (cursors.up.isDown) {
         p2.body.velocity.y = -p2.speed;
       } if (cursors.down.isDown) {
@@ -100,7 +103,6 @@ function update() {
 
         p1.body.velocity.x = 0;
         p1.body.velocity.y = 0;
-        var reload2 = 0;
         if (move_up.isDown) {
           p1.body.velocity.y = -p1.speed;
         } if (move_down.isDown) {
