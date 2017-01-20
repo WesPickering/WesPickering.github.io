@@ -110,7 +110,7 @@ function update() {
   game.physics.arcade.collide(players, bricks);
   players.forEach(function(p){
     if (game.physics.arcade.overlap(p, flags)) {
-      alert("You win!!!");
+      alert("You win!!! Reload the page to play again. still learning how to reset automatically :/");
       reset();
     }
     p.body.velocity.x = 0;
@@ -130,10 +130,10 @@ function update() {
       randomBrickTop();
       time = 0;
     }
-    if (time % 90 == 0){
+    if (time % 100 == 0){
       randomBrickMid();
     }
-    if (time % 40 == 0){
+    if (time % 50 == 0){
       randomBrickBot();
     }
     time += 1;
