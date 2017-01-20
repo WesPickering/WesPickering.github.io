@@ -50,6 +50,8 @@ function createPlayer2() {
 
 //Player 1 controls
 player1.forEach(function(p1){
+  p1.body.velocity.x = 0;
+  p1.body.velocity.y = 0;
     if (move_up.isDown) {
       p1.body.velocity.y = -speed;
     } if (move_down.isDown) {
@@ -64,6 +66,8 @@ player1.forEach(function(p1){
 
 //Player 2 Controls
 player2.forEach(function(p2){
+  p2.body.velocity.x = 0;
+  p2.body.velocity.y = 0;
     if (cursors.up.isDown) {
       p2.body.velocity.y = -speed;
     } if (cursors.down.isDown) {
