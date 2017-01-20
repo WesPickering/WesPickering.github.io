@@ -24,12 +24,12 @@ function create() {
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
-  var move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
-  var move_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
-  var move_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
-  var move_down = game.input.keyboard.addKey(Phaser.Keyboard.S);
-  var shoot_1 = game.input.keyboard.addKey(Phaser.Keyboard.G);
-  var shoot_2 = game.input.keyboard.addKey(Phaser.Keyboard.L);
+  move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
+  move_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
+  move_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
+  move_down = game.input.keyboard.addKey(Phaser.Keyboard.S);
+  shoot_1 = game.input.keyboard.addKey(Phaser.Keyboard.G);
+  shoot_2 = game.input.keyboard.addKey(Phaser.Keyboard.L);
 
 }
 
