@@ -58,7 +58,7 @@ function createPlayer2() {
 
 function shoot1(x, y, x_speed, y_speed) {
   if (x_speed != 0 && y_speed != 0) {
-    var shot = bullets2.create(x + 25, y + 25, 'white');
+    var shot = bullets1.create(x + 25, y + 25, 'white');
     shot.body.velocity.x = x_speed * 1.8;
     shot.body.velocity.y = y_speed * 1.8;
   }
