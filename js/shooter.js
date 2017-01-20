@@ -76,6 +76,7 @@ function shoot2(x, y, x_speed, y_speed) {
 
 function update() {
     game.physics.arcade.collide(player1, player2);
+    game.physics.arcade.collide(bullets1, bullets2);
 
     //Player 2 Controls
     player2.forEach(function(p2){
