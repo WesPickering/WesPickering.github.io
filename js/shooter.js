@@ -31,10 +31,10 @@ function create() {
   bullets2.enableBody = true;
 
   //controls
-  up_arr = game.input.keyboard.addKey(Phaser.Keyboard.up);
-  left_arr = game.input.keyboard.addKey(Phaser.Keyboard.left);
-  right_arr = game.input.keyboard.addKey(Phaser.Keyboard.right);
-  down_arr = game.input.keyboard.addKey(Phaser.Keyboard.down);
+  up_arr = game.input.keyboard.addKey(38);
+  left_arr = game.input.keyboard.addKey(37);
+  right_arr = game.input.keyboard.addKey(39);
+  down_arr = game.input.keyboard.addKey(40);
   move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
   move_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
   move_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
