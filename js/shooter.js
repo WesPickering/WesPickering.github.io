@@ -51,8 +51,8 @@ function createPlayer2() {
 
 function shoot(x, y, x_speed, y_speed) {
   var shot = bullets.create(x + 25, y + 25, 'white');
-  shot.body.velocity.x = x_speed * 1.7;
-  shot.body.velocity.y = y_speed * 1.7;
+  shot.body.velocity.x = x_speed * 2;
+  shot.body.velocity.y = y_speed * 2;
 
 }
 
@@ -77,7 +77,7 @@ function update() {
       if (reload1 == 10) {
         if (shoot_2.isDown) {
           shoot(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
-          reload1 = 0;  
+          reload1 = 0;
         }
       } else {
         reload1 += 1;
