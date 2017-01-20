@@ -30,17 +30,19 @@ function create() {
   bullets2 = game.add.group();
   bullets2.enableBody = true;
 
-  //controls
+  //controls P2
   up_arr = game.input.keyboard.addKey(38);
   left_arr = game.input.keyboard.addKey(37);
   right_arr = game.input.keyboard.addKey(39);
   down_arr = game.input.keyboard.addKey(40);
+  shoot_2 = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+// controls P1
   move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
   move_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
   move_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
   move_down = game.input.keyboard.addKey(Phaser.Keyboard.S);
   shoot_1 = game.input.keyboard.addKey(Phaser.Keyboard.G);
-  shoot_2 = game.input.keyboard.addKey(Phaser.Keyboard.L);
 
 }
 
@@ -57,7 +59,7 @@ function createPlayer2() {
 }
 
 function shoot1(x, y, x_speed, y_speed) {
-  if (x_speed != 0 && y_speed != 0) {
+  if (x_speed != 0 || y_speed != 0) {
     var shot = bullets1.create(x + 25, y + 25, 'white');
     shot.body.velocity.x = x_speed * 1.8;
     shot.body.velocity.y = y_speed * 1.8;
@@ -65,7 +67,7 @@ function shoot1(x, y, x_speed, y_speed) {
 }
 
 function shoot2(x, y, x_speed, y_speed) {
-  if (x_speed != 0 && y_speed != 0) {
+  if (x_speed != 0 || y_speed != 0) {
     var shot = bullets2.create(x + 25, y + 25, 'white');
     shot.body.velocity.x = x_speed * 1.8;
     shot.body.velocity.y = y_speed * 1.8;
@@ -77,6 +79,36 @@ function shoot2(x, y, x_speed, y_speed) {
 function update() {
     game.physics.arcade.collide(player1, player2);
     game.physics.arcade.collide(bullets1, bullets2);
+
+    //Player 1 controls
+    player1.forEach(function(p1){
+      //win condidtion
+      if (game.physics.arcade.overlap(p1, bullets2)) {
+        alert("Player 2 wins! reload to play again.");
+        reset();
+      }
+
+      p1.body.velocity.x = 0;
+      p1.body.velocity.y = 0;
+      if (move_up.isDown) {
+        p1.body.velocity.y = -p1.speed;
+      } if (move_down.isDown) {
+        p1.body.velocity.y = p1.speed;
+      } if (move_left.isDown) {
+        p1.body.velocity.x = -p1.speed;
+      } if (move_right.isDown) {
+        p1.body.velocity.x = p1.speed;
+      }
+      //shooting mech for 1
+      if (reload2 == 20) {
+        if (shoot_1.isDown) {
+          shoot1(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
+          reload2 = 0;
+        }
+      } else {
+        reload2 += 1;
+      }
+      });
 
     //Player 2 Controls
     player2.forEach(function(p2){
@@ -108,35 +140,7 @@ function update() {
       }
       });
 
-      //Player 1 controls
-      player1.forEach(function(p1){
-        //win condidtion
-        if (game.physics.arcade.overlap(p1, bullets2)) {
-          alert("Player 2 wins! reload to play again.");
-          reset();
-        }
 
-        p1.body.velocity.x = 0;
-        p1.body.velocity.y = 0;
-        if (move_up.isDown) {
-          p1.body.velocity.y = -p1.speed;
-        } if (move_down.isDown) {
-          p1.body.velocity.y = p1.speed;
-        } if (move_left.isDown) {
-          p1.body.velocity.x = -p1.speed;
-        } if (move_right.isDown) {
-          p1.body.velocity.x = p1.speed;
-        }
-        //shooting mech for 1
-        if (reload2 == 20) {
-          if (shoot_1.isDown) {
-            shoot1(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
-            reload2 = 0;
-          }
-        } else {
-          reload2 += 1;
-        }
-        });
 
 
 
