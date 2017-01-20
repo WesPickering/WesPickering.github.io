@@ -52,16 +52,19 @@ function createPlayer2() {
 player1.forEach(function(p1){
   p1.body.velocity.x = 0;
   p1.body.velocity.y = 0;
-    if (move_up.isDown) {
-      p1.body.velocity.y = -speed;
-    } if (move_down.isDown) {
-      p1.body.velocity.y = speed;
-    } if (move_left.isDown) {
-      p1.body.velocity.x = -speed;
-    } if (move_right.isDown) {
-      p1.body.velocity.x = speed;
-    } if (shoot_1.isDown) {
-    }
+  if(p1.x > 400) {
+    alert("it works!");
+  }
+  if (move_up.isDown) {
+    p1.body.velocity.y = -speed;
+  } if (move_down.isDown) {
+    p1.body.velocity.y = speed;
+  } if (move_left.isDown) {
+    p1.body.velocity.x = -speed;
+  } if (move_right.isDown) {
+    p1.body.velocity.x = speed;
+  } if (shoot_1.isDown) {
+  }
   });
 
 //Player 2 Controls
