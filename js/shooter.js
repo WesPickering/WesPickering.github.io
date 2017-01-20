@@ -1,6 +1,7 @@
 var game = new Phaser.Game(860, 860, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 var cursors;
-var time = 0;
+var reload2 = 0;
+var reload1 = 0;
 var speed = 75;
 
 function preload() {
@@ -58,10 +59,6 @@ function shoot(x, y, x_speed, y_speed) {
 
 function update() {
     game.physics.arcade.collide(player1, player2);
-    var reload2 = 0;
-    var reload1 = 0;
-
-
 
     //Player 2 Controls
     player2.forEach(function(p2){
