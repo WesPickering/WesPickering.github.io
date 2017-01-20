@@ -22,6 +22,10 @@ function create() {
   player2.enableBody = true;
   createPlayer2();
 
+  //bullets
+  bullets = game.add.group();
+  bullets.enableBody = true;
+
   //controls
   cursors = game.input.keyboard.createCursorKeys();
   move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -45,25 +49,30 @@ function createPlayer2() {
   p2.speed = speed;
 }
 
-  function update() {
+function shoot(x, y, x_speed, y_speed) {
+  var shot = bullets.create(x + 15, y + 15, 'white');
+  shot.body.velocity x = x_speed * 1.5;
+  shot.body.velocity y = y_speed * 1.5;
+
+}
+
+function update() {
     game.physics.arcade.collide(player1, player2);
 
 //Player 1 controls
 player1.forEach(function(p1){
   p1.body.velocity.x = 0;
   p1.body.velocity.y = 0;
-  if(p1.x > 400) {
-    alert("it works!");
-  }
   if (move_up.isDown) {
-    p1.body.velocity.y = -speed;
+    p1.body.velocity.y = -p1.speed;
   } if (move_down.isDown) {
-    p1.body.velocity.y = speed;
+    p1.body.velocity.y = p1.speed;
   } if (move_left.isDown) {
-    p1.body.velocity.x = -speed;
+    p1.body.velocity.x = -p1.speed;
   } if (move_right.isDown) {
-    p1.body.velocity.x = speed;
+    p1.body.velocity.x = p1.speed;
   } if (shoot_1.isDown) {
+    shoot(p1.x, p1.y, p1.body.velocity.x, p1.velocity.y);
   }
   });
 
@@ -72,13 +81,15 @@ player2.forEach(function(p2){
   p2.body.velocity.x = 0;
   p2.body.velocity.y = 0;
     if (cursors.up.isDown) {
-      p2.body.velocity.y = -speed;
+      p2.body.velocity.y = -p2.speed;
     } if (cursors.down.isDown) {
-      p2.body.velocity.y = speed;
+      p2.body.velocity.y = p2.speed;
     } if (cursors.left.isDown) {
-      p2.body.velocity.x = -speed;
+      p2.body.velocity.x = -p2.speed;
     } if (cursors.right.isDown) {
-      p2.body.velocity.x = speed;
+      p2.body.velocity.x = p2.speed;
+    } if (shoot_2.isDown) {
+      shoot(p2.x, p2.y, p2.body.velocity.x, p2.velocity.y);
     }
   });
 
