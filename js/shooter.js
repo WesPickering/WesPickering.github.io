@@ -72,7 +72,7 @@ player1.forEach(function(p1){
   } if (move_right.isDown) {
     p1.body.velocity.x = p1.speed;
   } if (shoot_1.isDown) {
-    shoot(p1.x, p1.y, p1.body.velocity.x, p1.velocity.y);
+    shoot(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
   }
   });
 
@@ -89,7 +89,7 @@ player2.forEach(function(p2){
     } if (cursors.right.isDown) {
       p2.body.velocity.x = p2.speed;
     } if (shoot_2.isDown) {
-      shoot(p2.x, p2.y, p2.body.velocity.x, p2.velocity.y);
+      shoot(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
     }
   });
 
