@@ -61,6 +61,12 @@ function update() {
 
     //Player 2 Controls
     player2.forEach(function(p2){
+      //win condidtion
+      if (game.physics.arcade.overlap(p2, bullets)) {
+        alert("Player 1 wins! reload to play again.");
+        reset();
+      }
+
       p2.body.velocity.x = 0;
       p2.body.velocity.y = 0;
       var reload1 = 0;
@@ -86,6 +92,12 @@ function update() {
 
       //Player 1 controls
       player1.forEach(function(p1){
+        //win condidtion
+        if (game.physics.arcade.overlap(p1, bullets)) {
+          alert("Player 2 wins! reload to play again.");
+          reset();
+        }
+
         p1.body.velocity.x = 0;
         p1.body.velocity.y = 0;
         var reload2 = 0;
