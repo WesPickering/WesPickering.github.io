@@ -2,7 +2,7 @@ var game = new Phaser.Game(860, 860, Phaser.AUTO, '', { preload: preload, create
 var cursors;
 var reload2 = 0;
 var reload1 = 0;
-var speed = 75;
+var speed = 95;
 
 function preload() {
   game.load.image('blue', 'res/blue_block.png');
@@ -31,7 +31,10 @@ function create() {
   bullets2.enableBody = true;
 
   //controls
-  cursors = game.input.keyboard.createCursorKeys();
+  up_arr = game.input.keyboard.addKey(Phaser.Keyboard.up);
+  left_arr = game.input.keyboard.addKey(Phaser.Keyboard.left);
+  right_arr = game.input.keyboard.addKey(Phaser.Keyboard.right);
+  down_arr = game.input.keyboard.addKey(Phaser.Keyboard.down);
   move_left = game.input.keyboard.addKey(Phaser.Keyboard.A);
   move_right = game.input.keyboard.addKey(Phaser.Keyboard.D);
   move_up = game.input.keyboard.addKey(Phaser.Keyboard.W);
@@ -54,16 +57,20 @@ function createPlayer2() {
 }
 
 function shoot1(x, y, x_speed, y_speed) {
-  var shot = bullets1.create(x + 25, y + 25, 'white');
-  shot.body.velocity.x = x_speed * 2;
-  shot.body.velocity.y = y_speed * 2;
-
+  if (x_speed != 0 && y_speed != 0) {
+    var shot = bullets2.create(x + 25, y + 25, 'white');
+    shot.body.velocity.x = x_speed * 1.8;
+    shot.body.velocity.y = y_speed * 1.8;
+  }
 }
 
 function shoot2(x, y, x_speed, y_speed) {
-  var shot = bullets2.create(x + 25, y + 25, 'white');
-  shot.body.velocity.x = x_speed * 2;
-  shot.body.velocity.y = y_speed * 2;
+  if (x_speed != 0 && y_speed != 0) {
+    var shot = bullets2.create(x + 25, y + 25, 'white');
+    shot.body.velocity.x = x_speed * 1.8;
+    shot.body.velocity.y = y_speed * 1.8;
+  }
+
 
 }
 
@@ -80,17 +87,17 @@ function update() {
 
       p2.body.velocity.x = 0;
       p2.body.velocity.y = 0;
-      if (cursors.up.isDown) {
+      if (up_arr.isDown) {
         p2.body.velocity.y = -p2.speed;
-      } if (cursors.down.isDown) {
+      } if (down_arr.isDown) {
         p2.body.velocity.y = p2.speed;
-      } if (cursors.left.isDown) {
+      } if (left_arr.isDown) {
         p2.body.velocity.x = -p2.speed;
-      } if (cursors.right.isDown) {
+      } if (right_arr.isDown) {
         p2.body.velocity.x = p2.speed;
       }
       //shooting mech for 2
-      if (reload1 == 10) {
+      if (reload1 == 20) {
         if (shoot_2.isDown) {
           shoot2(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
           reload1 = 0;
@@ -120,7 +127,7 @@ function update() {
           p1.body.velocity.x = p1.speed;
         }
         //shooting mech for 1
-        if (reload2 == 10) {
+        if (reload2 == 20) {
           if (shoot_1.isDown) {
             shoot1(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
             reload2 = 0;
