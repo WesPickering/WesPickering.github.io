@@ -24,8 +24,11 @@ function create() {
   createPlayer2();
 
   //bullets
-  bullets = game.add.group();
-  bullets.enableBody = true;
+  bullets1 = game.add.group();
+  bullets1.enableBody = true;
+
+  bullets2 = game.add.group();
+  bullets2.enableBody = true;
 
   //controls
   cursors = game.input.keyboard.createCursorKeys();
@@ -50,8 +53,15 @@ function createPlayer2() {
   p2.speed = speed;
 }
 
-function shoot(x, y, x_speed, y_speed) {
-  var shot = bullets.create(x + 25, y + 25, 'white');
+function shoot1(x, y, x_speed, y_speed) {
+  var shot = bullets1.create(x + 25, y + 25, 'white');
+  shot.body.velocity.x = x_speed * 2;
+  shot.body.velocity.y = y_speed * 2;
+
+}
+
+function shoot2(x, y, x_speed, y_speed) {
+  var shot = bullets2.create(x + 25, y + 25, 'white');
   shot.body.velocity.x = x_speed * 2;
   shot.body.velocity.y = y_speed * 2;
 
@@ -63,7 +73,7 @@ function update() {
     //Player 2 Controls
     player2.forEach(function(p2){
       //win condidtion
-      if (game.physics.arcade.overlap(p2, bullets)) {
+      if (game.physics.arcade.overlap(p2, bullets1)) {
         alert("Player 1 wins! reload to play again.");
         reset();
       }
@@ -82,7 +92,7 @@ function update() {
       //shooting mech for 2
       if (reload1 == 10) {
         if (shoot_2.isDown) {
-          shoot(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
+          shoot2(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
           reload1 = 0;
         }
       } else {
@@ -93,7 +103,7 @@ function update() {
       //Player 1 controls
       player1.forEach(function(p1){
         //win condidtion
-        if (game.physics.arcade.overlap(p1, bullets)) {
+        if (game.physics.arcade.overlap(p1, bullets2)) {
           alert("Player 2 wins! reload to play again.");
           reset();
         }
@@ -112,7 +122,7 @@ function update() {
         //shooting mech for 1
         if (reload2 == 10) {
           if (shoot_1.isDown) {
-            shoot(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
+            shoot1(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
             reload2 = 0;
           }
         } else {
