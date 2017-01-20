@@ -49,28 +49,31 @@ function createPlayer2() {
     game.physics.arcade.collide(player1, player2);
 
 //Player 1 controls
+player1.forEach(function(p1){
     if (move_up.isDown) {
-      player1.body.velocity.y = -speed;
+      p1.body.velocity.y = -speed;
     } if (move_down.isDown) {
-      player1.body.velocity.y = speed;
+      p1.body.velocity.y = speed;
     } if (move_left.isDown) {
-      player1.body.velocity.x = -speed;
+      p1.body.velocity.x = -speed;
     } if (move_right.isDown) {
-      player1.body.velocity.x = speed;
+      p1.body.velocity.x = speed;
     } if (shoot_1.isDown) {
     }
+  });
 
 //Player 2 Controls
+player2.forEach(function(p2){
     if (cursors.up.isDown) {
-      player2.body.velocity.y = -speed;
+      p2.body.velocity.y = -speed;
     } if (cursors.down.isDown) {
-      player2.body.velocity.y = speed;
+      p2.body.velocity.y = speed;
     } if (cursors.left.isDown) {
-      player2.body.velocity.x = -speed;
+      p2.body.velocity.x = -speed;
     } if (cursors.right.isDown) {
-      player2.body.velocity.x = speed;
+      p2.body.velocity.x = speed;
     }
-
+  });
 
 
 
