@@ -42,7 +42,7 @@ function buildAWall() {
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
-  for (var y = rand + 150; y < game.world.height - 64; y += 64) {
+  for (var y = game.world.height; y > rand + 250; y -= 64) {
     var wall2 = barriers.create(game.world.width - 64, y, 'brick');
     wall2.body.velocity.x = -125;
   }
