@@ -100,7 +100,7 @@ function update() {
         p1.body.velocity.x = p1.speed;
       }
       //shooting mech for 1
-      if (reload2 == 20) {
+      if (reload2 == 30) {
         if (shoot_1.isDown) {
           shoot1(p1.x, p1.y, p1.body.velocity.x, p1.body.velocity.y);
           reload2 = 0;
@@ -130,7 +130,7 @@ function update() {
         p2.body.velocity.x = p2.speed;
       }
       //shooting mech for 2
-      if (reload1 == 20) {
+      if (reload1 == 30) {
         if (shoot_2.isDown) {
           shoot2(p2.x, p2.y, p2.body.velocity.x, p2.body.velocity.y);
           reload1 = 0;
