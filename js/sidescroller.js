@@ -69,6 +69,7 @@ function update() {
     var random = (Math.random() * 30) + 100;
     if (time == 125) {
       buildAWall();
+      time = 0;
     } else {
       time += 1;
     }
