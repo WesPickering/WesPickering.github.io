@@ -67,8 +67,8 @@ function update() {
     }
     //Randomly spawn bricks
     var random = (Math.random() * 30) + 100;
-    if (time == random) {
-      buildAWall()
+    if (time == 125) {
+      buildAWall();
     } else {
       time += 1;
     }
