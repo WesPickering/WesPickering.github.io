@@ -42,7 +42,7 @@ function buildAWall() {
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
-  for (var y = rand + 1; y < game.world.height - 64; y += 64) {
+  for (var y = rand + 150; y < game.world.height - 64; y += 64) {
     var wall2 = barriers.create(game.world.width - 64, y, 'brick');
     wall2.body.velocity.x = -125;
   }
@@ -51,6 +51,7 @@ function buildAWall() {
 
 
 function update() {
+  game.physics.arcade.collide(bird, barriers);
   bird.forEach(function(crappy) {
     if (crappy.body.touching.down || crappy.body.touching.up || crappy.body.touching.left || crappy.body.touching.right) {
       alert("YOU LOSE SUCKA! RELOAD THE PAGE TO PLAY AGAIN");
