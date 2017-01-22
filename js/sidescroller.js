@@ -31,7 +31,7 @@ function create() {
 
 function createBird() {
   var crappy = bird.create(50, game.world.height / 2, 'crappy');
-  crappy.body.gravity.y = 900;
+  crappy.body.gravity.y = 1000;
   crappy.body.velocity.y = 100
   crappy.body.collideWorldBounds = true;
 }
