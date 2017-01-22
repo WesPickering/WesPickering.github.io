@@ -4,15 +4,16 @@ var time = 0;
 var jumpSpace = 0;
 
 function preload() {
-  game.image.load('crappy', 'res/CrappyBird.png');
-  game.image.load('brick', 'res/brick.png');
+  game.load.image('crappy', 'res/tux.png');
+  game.load.image('brick', 'res/brick.png');
+
   }
 
 function create() {
 
   //Stage
   game.stage.backgroundColor = "sky blue";
-  game.physics.startSystem(Phaser.physics.ARCADE);
+  game.physics.startSystem(Phaser.Physics.ARCADE);
 
   //CrappyBird
   bird = game.add.group();
@@ -32,17 +33,17 @@ function createBird() {
   var crappy = bird.create(50, game.world.height / 2, 'crappy');
   crappy.body.gravity.y = 900;
   crappy.body.velocity.y = 100
-  player.body.collideWorldBounds = true;
+  crappy.body.collideWorldBounds = true;
 }
 
 function buildAWall() {
   var rand = Math.random() * (game.world.height - 150);
-  for (int x = 1; x < rand; x += 64){
+  for (var x = 0; x < rand; x = x + 64){
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
-  for (int x = rand + 1; x < game.world.height - 64; x += 64) {
-    var wall2 = barriers.create(game.world.width - 64, x, 'brick');
+  for (var y = rand + 1; y < game.world.height - 64; y += 64) {
+    var wall2 = barriers.create(game.world.width - 64, y, 'brick');
     wall2.body.velocity.x = -125;
   }
 
