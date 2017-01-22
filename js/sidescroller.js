@@ -37,7 +37,7 @@ function createBird() {
 
 function buildAWall() {
   var rand = Math.random() * (game.world.height - 150);
-  for (int x = 1; x < rand; x += 64) {
+  for (int x = 1; x < rand; x += 64){
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
