@@ -55,6 +55,7 @@ function update() {
   bird.forEach(function(crappy) {
     if (crappy.body.touching.down || crappy.body.touching.up || crappy.body.touching.left || crappy.body.touching.right) {
       alert("YOU LOSE SUCKA! RELOAD THE PAGE TO PLAY AGAIN");
+      reset();
     }
 
     //Crappy Controls
