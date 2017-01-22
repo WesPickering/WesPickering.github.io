@@ -4,7 +4,7 @@ var time = 0;
 var jumpSpace = 0;
 
 function preload() {
-  game.load.image('crappy', 'res/tux.png');
+  game.load.image('crappy', 'res/CrappyBird.png');
   game.load.image('brick', 'res/brick.png');
 
   }
@@ -12,7 +12,7 @@ function preload() {
 function create() {
 
   //Stage
-  game.stage.backgroundColor = "sky blue";
+  game.stage.backgroundColor = "#00BFFF";
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
   //CrappyBird
@@ -57,9 +57,9 @@ function update() {
     }
 
     //Crappy Controls
-    if (jumpSpace == 3) {
+    if (jumpSpace == 6) {
       if (jump.isDown) {
-        crappy.body.velocity.y = -800;
+        crappy.body.velocity.y = -400;
         jumpSpace = 0;
       }
     } else {
