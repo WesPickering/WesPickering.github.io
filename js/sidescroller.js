@@ -42,7 +42,7 @@ function buildAWall() {
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
-  for (var y = game.world.height; y > rand + 170; y -= 64) {
+  for (var y = game.world.height; y > rand + 160; y -= 64) {
     var wall2 = barriers.create(game.world.width - 64, y, 'brick');
     wall2.body.velocity.x = -125;
   }
@@ -69,7 +69,7 @@ function update() {
     }
     //Randomly spawn bricks
     var random = (Math.random() * 30) + 100;
-    if (time == 125) {
+    if (time == 135) {
       buildAWall();
       time = 0;
     } else {
