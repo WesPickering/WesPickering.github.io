@@ -42,7 +42,7 @@ function buildAWall() {
     var wall = barriers.create(game.world.width - 64, x, 'brick');
     wall.body.velocity.x = -125;
   }
-  for (var y = game.world.height; y > rand + 200; y -= 64) {
+  for (var y = game.world.height; y > rand + 170; y -= 64) {
     var wall2 = barriers.create(game.world.width - 64, y, 'brick');
     wall2.body.velocity.x = -125;
   }
@@ -59,9 +59,9 @@ function update() {
     }
 
     //Crappy Controls
-    if (jumpSpace == 6) {
+    if (jumpSpace == 10) {
       if (jump.isDown) {
-        crappy.body.velocity.y = -350;
+        crappy.body.velocity.y = -320;
         jumpSpace = 0;
       }
     } else {
