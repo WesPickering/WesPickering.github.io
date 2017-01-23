@@ -61,7 +61,7 @@ function update() {
     //Crappy Controls
     if (jumpSpace == 6) {
       if (jump.isDown) {
-        crappy.body.velocity.y = -400;
+        crappy.body.velocity.y = -350;
         jumpSpace = 0;
       }
     } else {
