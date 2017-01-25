@@ -5,7 +5,6 @@ var time = 0;
 function preload() {
   game.load.image('tux', 'res/tux.png');
   game.load.image('brick', 'res/brick.png');
-  game.load.image('brick2', 'res/brick.png');
   game.load.image('flag', 'res/flag.png');
 }
 
@@ -126,7 +125,7 @@ function update() {
     }
 
     //generate bricks at intervals
-    if (time % 300 == 0){
+    if (time % 270 == 0){
       randomBrickTop();
       time = 0;
     }
