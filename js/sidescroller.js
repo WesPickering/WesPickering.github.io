@@ -2,6 +2,7 @@ var game = new Phaser.Game(760, 600, Phaser.AUTO, '', { preload: preload, create
 var cursors;
 var time = 0;
 var jumpSpace = 0;
+var score = 0;
 
 function preload() {
   game.load.image('crappy', 'res/CrappyBird.png');
@@ -10,6 +11,7 @@ function preload() {
   }
 
 function create() {
+  var doc = document.create
 
   //Stage
   game.stage.backgroundColor = "#00BFFF";
@@ -53,6 +55,7 @@ function buildAWall() {
 function update() {
   game.physics.arcade.collide(bird, barriers);
   bird.forEach(function(crappy) {
+    
     if (crappy.body.touching.down || crappy.body.touching.up || crappy.body.touching.left || crappy.body.touching.right) {
       alert("YOU LOSE SUCKA! RELOAD THE PAGE TO PLAY AGAIN");
       reset();
